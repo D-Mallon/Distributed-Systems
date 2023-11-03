@@ -1,0 +1,30 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>distSys</groupId>
+    <artifactId>hello-maven</artifactId>
+    <packaging>jar</packaging>
+    <version>0.0.1</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <junit.version>4.12</junit.version>
+        <hamcrest.version>1.3</hamcrest.version>
+    </properties>
+
+<build>
+    <plugins>
+        <plugin> <!-- You need to wrap the plugin details in a <plugin> tag -->
+            <groupId>org.codehaus.mojo</groupId> <!-- Note the correct case here -->
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.6.0</version>
+            <configuration>
+                <mainClass>hello</mainClass>
+            </configuration>
+        </plugin> <!-- Closing <plugin> tag -->
+    </plugins>
+</build>
+
+</project>

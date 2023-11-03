@@ -1,0 +1,76 @@
+version: "3"
+services:
+  broker:
+    build: broker
+  auldfellas:
+    build: auldfellas
+    environment:
+      SERVER_HOST: broker
+    depends_on:
+      - broker
+  girlsallowed:
+    build: girlsallowed
+    environment:
+      SERVER_HOST: broker
+    depends_on:
+      - broker
+  dodgygeezers:
+    build: dodgygeezers
+    environment:
+      SERVER_HOST: broker
+    depends_on:
+      - broker
+  client:
+    build: client
+    environment:
+      SERVER_HOST: broker
+    depends_on:
+      - broker
+      - auldfellas
+      - girlsallowed
+      - dodgygeezers
+# version: "3"
+# networks:
+#   my_network:
+#     driver: bridge
+
+# services:
+#   broker:
+#     build: broker
+#     networks:
+#       - my_network
+#   auldfellas:
+#     build: auldfellas
+#     environment:
+#       SERVER_HOST: broker
+#     depends_on:
+#       - broker
+#     networks:
+#       - my_network
+#   girlsallowed:
+#     build: girlsallowed
+#     environment:
+#       SERVER_HOST: broker
+#     depends_on:
+#       - broker
+#     networks:
+#       - my_network
+#   dodgygeezers:
+#     build: dodgygeezers
+#     environment:
+#       SERVER_HOST: broker
+#     depends_on:
+#       - broker
+#     networks:
+#       - my_network
+#   client:
+#     build: client
+#     environment:
+#       SERVER_HOST: broker
+#     depends_on:
+#       - broker
+#       - auldfellas
+#       - girlsallowed
+#       - dodgygeezers
+#     networks:
+#       - my_network

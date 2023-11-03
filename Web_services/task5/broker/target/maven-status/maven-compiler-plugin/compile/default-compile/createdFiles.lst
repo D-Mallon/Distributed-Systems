@@ -1,0 +1,3 @@
+BrokerMain.class
+BrokerMain$JmdnsClient.class
+service/broker/LocalBrokerService.class

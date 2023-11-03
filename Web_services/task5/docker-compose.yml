@@ -1,0 +1,84 @@
+# version: "3"
+
+# services:
+#   auldfellas:
+#     build:
+#       context: ./auldfellas
+#       dockerfile: Dockerfile
+#     # network_mode: "host"
+#     ports:
+#       - "9001:9001"
+
+#   dodgygeezers:
+#     build:
+#       context: ./dodgygeezers
+#       dockerfile: Dockerfile
+#     # network_mode: "host"
+#     ports:
+#       - "9002:9002"
+
+#   girlsallowed:
+#     build:
+#       context: ./girlsallowed
+#       dockerfile: Dockerfile
+#     # network_mode: "host"
+#     ports:
+#       - "9003:9003"
+
+#   broker:
+#     build:
+#       context: ./broker
+#       dockerfile: Dockerfile
+#     # network_mode: "host"
+#     ports:
+#       - "9000:9000"
+#     depends_on:
+#       - auldfellas
+#       - girlsallowed
+#       - dodgygeezers
+version: "3"
+
+services:
+  auldfellas:
+    build:
+      context: ./auldfellas
+      dockerfile: Dockerfile
+    ports:
+      - "9001:9001"
+    networks:
+      - custom_network
+
+  dodgygeezers:
+    build:
+      context: ./dodgygeezers
+      dockerfile: Dockerfile
+    ports:
+      - "9002:9002"
+    networks:
+      - custom_network
+
+  girlsallowed:
+    build:
+      context: ./girlsallowed
+      dockerfile: Dockerfile
+    ports:
+      - "9003:9003"
+    networks:
+      - custom_network
+
+  broker:
+    build:
+      context: ./broker
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000"
+    depends_on:
+      - auldfellas
+      - girlsallowed
+      - dodgygeezers
+    networks:
+      - custom_network
+
+networks:
+  custom_network:
+    driver: bridge

@@ -1,0 +1,59 @@
+<project>
+<modelVersion>4.0.0</modelVersion>
+    <groupId>quoco-rmi</groupId>
+    <artifactId>dodgygeezers</artifactId>
+    <version>0.0.1</version>
+    <packaging>jar</packaging>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency> 
+            <groupId>junit</groupId> 
+            <artifactId>junit</artifactId> 
+            <version>4.12</version>
+        </dependency>
+
+        <dependency> 
+            <groupId>quoco-rmi</groupId> 
+            <artifactId>core</artifactId> 
+            <version>0.0.1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Plugin used to run Java programs -->
+                      <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <mainClass>DodgygeezersMain</mainClass>
+                </configuration>
+            </plugin>
+            <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+                <execution>
+                <phase>package</phase>
+                <goals><goal>single</goal></goals>
+                <configuration>
+                    <archive>
+                    <manifest>
+                        <mainClass>DodgygeezersMain</mainClass>
+                    </manifest>
+                    </archive>
+                    <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                </execution>
+            </executions>
+            </plugin>
+        </plugins>
+</build>
+</project>
