@@ -1,0 +1,4 @@
+service/core/ClientInfo.class
+service/core/Application.class
+service/core/AbstractQuotationService.class
+service/core/Quotation.class
