@@ -1,0 +1,24 @@
+version: "3.6"
+services:
+  broker:
+    build: broker
+    environment:
+      - HOSTNAME=broker
+    ports:
+      - 2550:2550
+  auldfellas:
+    build: auldfellas
+    environment:
+      - HOSTNAME=auldfellas
+  dodgygeezers:
+    build: dodgygeezers
+    environment:
+      - HOSTNAME=dodgygeezers
+  girlsallowed:
+    build: girlsallowed
+    environment:
+      - HOSTNAME=girlsallowed
+  client:
+    build: client
+    environment:
+      - HOSTNAME=client

@@ -1,0 +1,3 @@
+FROM openjdk:8-jre-alpine
+COPY target/dodgygeezers-0.0.1.jar /dodgygeezers-0.0.1.jar
+CMD ["sh", "-c", "sleep 10 && /usr/bin/java -jar /dodgygeezers-0.0.1.jar"]
